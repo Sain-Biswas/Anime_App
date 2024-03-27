@@ -1,17 +1,7 @@
 import { AnimeCharacters, AnimeGenreProducer, AnimeRelation, FullAnime } from "@/lib/types/fullAnime";
 import axios, { AxiosResponse } from "axios";
-import { NextResponse } from "next/server";
 
-interface RequestParams {
-    animeID?: string
-}
-
-export async function GET(
-    request: Request,
-    { params }: { params: RequestParams }
-) {
-    const animeID = params.animeID;
-
+export default async function getAnimeFull(animeID: string) {
     const anime = await axios.get(`https://api.jikan.moe/v4/anime/${animeID}/full`)
         .then((response: AxiosResponse) => response.data.data)
     const characteresponse = await axios.get(`https://api.jikan.moe/v4/anime/${animeID}/characters`)
@@ -111,5 +101,5 @@ export async function GET(
         characters: characters,
     };
 
-    return NextResponse.json({ response });
+    return response;
 }

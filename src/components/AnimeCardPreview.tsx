@@ -8,6 +8,7 @@ import StarIcon from "@/lib/icons/Star";
 import { Badge } from "./ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import Link from "next/link";
 
 interface AnimeCardProps {
     anime: AnimeCard
@@ -19,28 +20,30 @@ const AnimeCardPreview: React.FC<AnimeCardProps> = ({ anime }) => {
             <Tooltip>
                 <TooltipTrigger asChild>
                     <Card className="w-72 border-2">
-                        <CardHeader>
-                            <AspectRatio ratio={9 / 16} className="bg-muted rounded-sm overflow-hidden">
-                                <Image
-                                    src={anime.banner}
-                                    alt={anime.title}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </AspectRatio>
-                        </CardHeader>
-                        <CardFooter className="justify-between">
-                            <div className="flex items-center"> <StarIcon className="" /> <p className="h-6">{anime.score}</p> </div>
-                            <Badge className="rounded-sm">{anime.type}</Badge>
-                        </CardFooter>
-                        <CardHeader className="text-center">
-                            <CardTitle>
-                                {anime.title}
-                            </CardTitle>
-                            <CardDescription>
-                                {anime.titleJP}
-                            </CardDescription>
-                        </CardHeader>
+                        <Link href={`/anime/${anime.id}`}>
+                            <CardHeader>
+                                <AspectRatio ratio={9 / 16} className="bg-muted rounded-sm overflow-hidden">
+                                    <Image
+                                        src={anime.banner}
+                                        alt={anime.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </AspectRatio>
+                            </CardHeader>
+                            <CardFooter className="justify-between">
+                                <div className="flex items-center"> <StarIcon className="" /> <p className="h-6">{anime.score}</p> </div>
+                                <Badge className="rounded-sm">{anime.type}</Badge>
+                            </CardFooter>
+                            <CardHeader className="text-center">
+                                <CardTitle>
+                                    {anime.title}
+                                </CardTitle>
+                                <CardDescription>
+                                    {anime.titleJP}
+                                </CardDescription>
+                            </CardHeader>
+                        </Link>
                     </Card>
                 </TooltipTrigger>
                 <TooltipContent className="bg-card border max-w-56 ring-1" side={"right"}>

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/theme-toggler";
 import NextTopLoader from "nextjs-toploader";
+import React from "react";
+import Navbar from "./navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
         >
-          <ModeToggle />
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
