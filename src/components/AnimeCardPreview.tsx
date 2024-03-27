@@ -69,7 +69,7 @@ const AnimeCardPreview: React.FC<AnimeCardProps> = ({ anime }) => {
                     <div className="flex justify-evenly gap-1 flex-wrap">
                         {
                             anime.genres.map((genre: string) => (
-                                <Badge className="">
+                                <Badge className="" key={`${genre}-${anime.id}`}>
                                     {genre}
                                 </Badge>
                             ))
