@@ -5,7 +5,11 @@ const Page = () => {
     const router = useRouter();
     router.push('/');
 
-    return
+    return (
+        <div className="">
+            redirecting...
+        </div>
+    )
 }
 
 export default Page
