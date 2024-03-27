@@ -1,0 +1,18 @@
+export type AnimeCard = {
+    id: number,
+    banner: string,
+    mal_link: string,
+    title: string,
+    titleJP: string,
+    type: string,
+    source: string,
+    episodes: string,
+    status: string,
+    score: number,
+    rank: number,
+    popularity: number,
+    synopsis: string,
+    season: string,
+    year: number,
+    genres: string[],
+}
